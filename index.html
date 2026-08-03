@@ -186,13 +186,34 @@
 
   /* ---------- DAILY RHYTHM ---------- */
   .rhythm{background:var(--white);}
-  .rhythm-track{max-width:780px; margin:0 auto; position:relative; padding-left:30px; border-left:3px solid var(--sage-soft);}
-  .rhythm-item{position:relative; padding-bottom:28px;}
-  .rhythm-item:last-child{padding-bottom:0;}
-  .rhythm-item::before{content:''; position:absolute; left:-39px; top:4px; width:14px; height:14px; border-radius:50%; background:var(--gold); border:3px solid var(--white); box-shadow:0 0 0 2px var(--gold);}
-  .rhythm-time{font-weight:700; color:var(--olive); font-size:0.84rem; letter-spacing:0.03em; text-transform:uppercase; font-family:'Quicksand',sans-serif;}
-  .rhythm-item h4{font-size:1.12rem; margin:3px 0 4px;}
-  .rhythm-item p{color:#5C5440; font-size:0.93rem; font-family:'Quicksand',sans-serif;}
+
+  /* ── Phase accordion ── */
+  .phase-list{max-width:680px; margin:0 auto; display:flex; flex-direction:column; gap:14px;}
+  .phase{border-radius:18px; overflow:hidden; box-shadow:0 4px 18px var(--shadow);}
+  .phase-btn{width:100%; display:flex; align-items:center; gap:16px; padding:18px 22px; background:var(--cream); border:none; cursor:pointer; text-align:left; transition:background .2s;}
+  .phase-btn:hover{background:#F0EAD8;}
+  .phase-icon{font-size:1.5rem; flex-shrink:0; line-height:1;}
+  .phase-meta{flex:1;}
+  .phase-label{font-family:'Quicksand',sans-serif; font-weight:700; font-size:0.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--gold); display:block; margin-bottom:2px;}
+  .phase-title{font-family:'Cormorant Garamond',serif; font-size:1.22rem; font-weight:600; color:var(--olive); margin:0; line-height:1.2;}
+  .phase-time{font-family:'Quicksand',sans-serif; font-size:0.78rem; color:#8B7A5E; margin-top:2px;}
+  .phase-arrow{font-size:1rem; color:var(--gold); transition:transform .3s; flex-shrink:0;}
+  .phase.open .phase-arrow{transform:rotate(180deg);}
+  .phase-body{background:var(--white); max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .phase.open .phase-body{max-height:900px;}
+  .phase-inner{padding:6px 22px 22px;}
+  .phase-row{display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-bottom:1px solid #F0EAD8;}
+  .phase-row:last-child{border-bottom:none;}
+  .row-time{font-family:'Quicksand',sans-serif; font-weight:700; font-size:0.73rem; text-transform:uppercase; letter-spacing:.04em; color:var(--gold); min-width:110px; padding-top:3px; flex-shrink:0;}
+  .row-content h5{font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:600; color:var(--olive); margin:0 0 3px;}
+  .row-content p{font-family:'Quicksand',sans-serif; font-size:0.88rem; color:#5C5440; margin:0; line-height:1.5;}
+  @media(max-width:500px){
+    .row-time{min-width:88px; font-size:0.68rem;}
+    .phase-title{font-size:1.08rem;}
+    .phase-btn{padding:15px 16px;}
+    .phase-inner{padding:4px 14px 16px;}
+    .phase-row{gap:10px;}
+  }
 
   /* ---------- SIGNATURE EXPERIENCES ---------- */
   .signature{background:var(--cream-deep);}
@@ -612,78 +633,142 @@
     <div class="eyebrow">Our Daily Rhythm</div>
     <h2>A balanced day of learning, play & growth</h2>
   </div>
-  <div class="rhythm-track">
-    <div class="rhythm-item">
-      <div class="rhythm-time">8:00 – 8:15 AM</div>
-      <h4>Breakfast Together</h4>
-      <p>We start our day with a healthy breakfast, good conversation, and gratitude.</p>
+  <div class="phase-list">
+
+    <!-- ── Morning ── -->
+    <div class="phase open" id="phase-morning">
+      <button class="phase-btn" onclick="togglePhase('phase-morning')" aria-expanded="true">
+        <span class="phase-icon">🌤️</span>
+        <span class="phase-meta">
+          <span class="phase-label">Phase 1</span>
+          <span class="phase-title">Morning</span>
+          <span class="phase-time">8:00 – 11:15 AM · 6 activities</span>
+        </span>
+        <span class="phase-arrow">▼</span>
+      </button>
+      <div class="phase-body">
+        <div class="phase-inner">
+          <div class="phase-row">
+            <div class="row-time">8:00 – 8:15</div>
+            <div class="row-content"><h5>Breakfast Together</h5><p>We start with a healthy breakfast, good conversation, and gratitude.</p></div>
+          </div>
+          <div class="phase-row">
+            <div class="row-time">8:15 – 8:45</div>
+            <div class="row-content"><h5>Arrival & Morning Invitations</h5><p>Children are welcomed with warm greetings, free play, sensory activities, books, and engaging learning invitations.</p></div>
+          </div>
+          <div class="phase-row">
+            <div class="row-time">8:45 – 9:15</div>
+            <div class="row-content"><h5>Morning Meeting</h5><p>We gather for songs, calendar, weather, ASL signs, and our daily focus.</p></div>
+          </div>
+          <div class="phase-row">
+            <div class="row-time">9:15 – 10:00</div>
+            <div class="row-content"><h5>Literacy Workshop</h5><p>Stories, letters, phonics, writing, and language development through hands-on exploration.</p></div>
+          </div>
+          <div class="phase-row">
+            <div class="row-time">10:00 – 10:45</div>
+            <div class="row-content"><h5>Discovery Lab</h5><p>STEM experiments, nature studies, sensory play, and problem-solving fun.</p></div>
+          </div>
+          <div class="phase-row">
+            <div class="row-time">10:45 – 11:15</div>
+            <div class="row-content"><h5>Snack & Conversation</h5><p>Healthy snack time and meaningful conversation together.</p></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">8:15 – 8:45 AM</div>
-      <h4>Arrival & Morning Invitations</h4>
-      <p>Children are welcomed with warm greetings, free play, sensory activities, books, and engaging learning invitations.</p>
+
+    <!-- ── Midday ── -->
+    <div class="phase" id="phase-midday">
+      <button class="phase-btn" onclick="togglePhase('phase-midday')" aria-expanded="false">
+        <span class="phase-icon">🌿</span>
+        <span class="phase-meta">
+          <span class="phase-label">Phase 2</span>
+          <span class="phase-title">Midday</span>
+          <span class="phase-time">11:15 AM – 1:00 PM · 3 activities</span>
+        </span>
+        <span class="phase-arrow">▼</span>
+      </button>
+      <div class="phase-body">
+        <div class="phase-inner">
+          <div class="phase-row">
+            <div class="row-time">11:15 – 12:00</div>
+            <div class="row-content"><h5>Outdoor Exploration</h5><p>Fresh air, gross motor play, nature walks, gardening, and outdoor discovery.</p></div>
+          </div>
+          <div class="phase-row">
+            <div class="row-time">12:00 – 12:30</div>
+            <div class="row-content"><h5>Creative Studio</h5><p>Art, music, movement, and imaginative creative expression.</p></div>
+          </div>
+          <div class="phase-row">
+            <div class="row-time">12:30 – 1:00</div>
+            <div class="row-content"><h5>Lunch</h5><p>A nourishing lunch together, followed by helping clean up and set the table.</p></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">8:45 – 9:15 AM</div>
-      <h4>Morning Meeting</h4>
-      <p>We gather for songs, calendar, weather, ASL signs, and our daily focus.</p>
+
+    <!-- ── Rest ── -->
+    <div class="phase" id="phase-rest">
+      <button class="phase-btn" onclick="togglePhase('phase-rest')" aria-expanded="false">
+        <span class="phase-icon">🌙</span>
+        <span class="phase-meta">
+          <span class="phase-label">Phase 3</span>
+          <span class="phase-title">Rest & Recharge</span>
+          <span class="phase-time">1:00 – 3:00 PM · quiet time</span>
+        </span>
+        <span class="phase-arrow">▼</span>
+      </button>
+      <div class="phase-body">
+        <div class="phase-inner">
+          <div class="phase-row">
+            <div class="row-time">1:00 – 3:00</div>
+            <div class="row-content"><h5>Rest & Quiet Time</h5><p>Rest, nap, or quiet activities to recharge our bodies and minds.</p></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">9:15 – 10:00 AM</div>
-      <h4>Literacy Workshop</h4>
-      <p>Stories, letters, phonics, writing, and language development through hands-on exploration.</p>
+
+    <!-- ── Afternoon ── -->
+    <div class="phase" id="phase-afternoon">
+      <button class="phase-btn" onclick="togglePhase('phase-afternoon')" aria-expanded="false">
+        <span class="phase-icon">🎨</span>
+        <span class="phase-meta">
+          <span class="phase-label">Phase 4</span>
+          <span class="phase-title">Afternoon</span>
+          <span class="phase-time">3:00 – 5:00 PM · 4 activities</span>
+        </span>
+        <span class="phase-arrow">▼</span>
+      </button>
+      <div class="phase-body">
+        <div class="phase-inner">
+          <div class="phase-row">
+            <div class="row-time">3:00 – 3:30</div>
+            <div class="row-content"><h5>Afternoon Discovery</h5><p>Small group learning, fine motor activities, puzzles, and engaging centers.</p></div>
+          </div>
+          <div class="phase-row">
+            <div class="row-time">3:30 – 4:00</div>
+            <div class="row-content"><h5>Music & Movement</h5><p>Songs, dances, instruments, and movement to build joy and confidence.</p></div>
+          </div>
+          <div class="phase-row">
+            <div class="row-time">4:00 – 4:45</div>
+            <div class="row-content"><h5>Open Play</h5><p>Children choose indoor or outdoor play experiences they love as they prepare for pickup.</p></div>
+          </div>
+          <div class="phase-row">
+            <div class="row-time">4:45 – 5:00</div>
+            <div class="row-content"><h5>Goodbyes & Sweet Endings</h5><p>We close out the day with pickup, hugs, and happy hearts!</p></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">10:00 – 10:45 AM</div>
-      <h4>Discovery Lab</h4>
-      <p>STEM experiments, nature studies, sensory play, and problem-solving fun.</p>
-    </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">10:45 – 11:15 AM</div>
-      <h4>Snack & Conversation</h4>
-      <p>Healthy snack time and meaningful conversation together.</p>
-    </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">11:15 AM – 12:00 PM</div>
-      <h4>Outdoor Exploration</h4>
-      <p>Fresh air, gross motor play, nature walks, gardening, and outdoor discovery.</p>
-    </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">12:00 – 12:30 PM</div>
-      <h4>Creative Studio</h4>
-      <p>Art, music, movement, and imaginative creative expression.</p>
-    </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">12:30 – 1:00 PM</div>
-      <h4>Lunch</h4>
-      <p>A nourishing lunch together, followed by helping clean up and set the table.</p>
-    </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">1:00 – 3:00 PM</div>
-      <h4>Rest & Quiet Time</h4>
-      <p>Rest, nap, or quiet activities to recharge our bodies and minds.</p>
-    </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">3:00 – 3:30 PM</div>
-      <h4>Afternoon Discovery</h4>
-      <p>Small group learning, fine motor activities, puzzles, and engaging centers.</p>
-    </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">3:30 – 4:00 PM</div>
-      <h4>Music & Movement</h4>
-      <p>Songs, dances, instruments, and movement to build joy and confidence.</p>
-    </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">4:00 – 4:45 PM</div>
-      <h4>Open Play — Indoor or Outdoor</h4>
-      <p>Children choose play experiences they love as they prepare for pickup.</p>
-    </div>
-    <div class="rhythm-item">
-      <div class="rhythm-time">4:45 – 5:00 PM</div>
-      <h4>Goodbyes & Sweet Endings</h4>
-      <p>We close out the day with pickup, hugs, and happy hearts!</p>
-    </div>
+
   </div>
+
+  <script>
+  function togglePhase(id){
+    var el=document.getElementById(id);
+    var isOpen=el.classList.contains('open');
+    el.classList.toggle('open',!isOpen);
+    el.querySelector('.phase-btn').setAttribute('aria-expanded',String(!isOpen));
+  }
+  </script>
 </section>
 
 <div class="floral-divider" aria-hidden="true">
