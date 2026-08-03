@@ -1,0 +1,28 @@
+{
+  "name": "The Busy Bee Daycare",
+  "short_name": "Busy Bee Daycare",
+  "description": "A boutique early learning experience in Boonton Township, NJ. Where little minds bloom.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF5E8",
+  "theme_color": "#4A5730",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/favicon_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon_32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}
