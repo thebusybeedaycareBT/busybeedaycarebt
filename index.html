@@ -1291,16 +1291,32 @@
         <input type="text" id="name" name="parent_name" placeholder="Your name" required>
       </div>
       <div class="field">
-        <label for="child-age">Child's Age</label>
-        <input type="text" id="child-age" name="child_age" placeholder="e.g. 2 years old">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Best number to reach you" required>
       </div>
       <div class="field">
-        <label for="email">Email or Phone</label>
-        <input type="text" id="email" name="_replyto" placeholder="Best way to reach you" required>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="_replyto" placeholder="Your email address" required>
       </div>
       <div class="field">
-        <label for="msg">Message</label>
-        <textarea id="msg" name="message" placeholder="Tell us a bit about what you're looking for..."></textarea>
+        <label for="child-dob">Child's Age / Date of Birth</label>
+        <input type="text" id="child-dob" name="child_age_dob" placeholder="e.g. 18 months or MM/DD/YYYY">
+      </div>
+      <div class="field">
+        <label for="start-date">Desired Start Date</label>
+        <input type="text" id="start-date" name="desired_start_date" placeholder="e.g. September 2025 or ASAP">
+      </div>
+      <div class="field">
+        <label for="days">Days Needed</label>
+        <input type="text" id="days" name="days_needed" placeholder="e.g. Monday – Friday or Mon, Wed, Fri">
+      </div>
+      <div class="field">
+        <label for="hours">Hours Needed</label>
+        <input type="text" id="hours" name="hours_needed" placeholder="e.g. 8:00 AM – 5:00 PM">
+      </div>
+      <div class="field">
+        <label for="msg">Anything else you'd like us to know?</label>
+        <textarea id="msg" name="message" placeholder="Feel free to share anything about your child or family..."></textarea>
       </div>
       <button type="submit">Send Request</button>
     </form>
